@@ -70,6 +70,16 @@
         <service android:name=".service.SmsBackupService" android:exported="false"/>
         <service android:name=".service.SmsRestoreService" android:exported="false"/>
 
+
+        <service android:name=".syncadapter.SyncService" android:exported="false">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter"
+                       android:resource="@xml/syncadapter" />
+
+        </service>
+
         <receiver android:name=".receiver.SmsBroadcastReceiver" android:enabled="true">
           <intent-filter>
             <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
